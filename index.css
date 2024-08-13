@@ -1,0 +1,455 @@
+/* temp */
+img {
+    width: 50px;
+    height: auto;
+    
+}
+/* temp */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    background-color: black;
+}
+
+.main-container {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    max-width: max(800px, 80vw);
+    height: 100vh;
+    margin: auto auto;
+}
+
+.side-bar {
+    background-color: rgb(0, 56, 139);
+    padding: 0 2vw 0 1vw;
+    display: grid;
+    grid-template-columns: min-content min-content;
+    grid-template-rows: max(40px, 8vh + 2vw) repeat(5, max(40px, 4vh)) max(40px, 6vh + 2vw) repeat(2, max(40px, 4vh));
+    grid-auto-rows: 5vh;
+    row-gap: 7px;
+    column-gap: 1vw;
+    justify-content: center;
+    justify-items: start;
+    align-content: start;
+    align-items: start;
+    padding-top: 3vh;
+
+    --side-bar-font-size: clamp(15px, 1.3vw, 40px);
+    --side-bar-font-size-big: clamp(20px, 2vw, 60px);
+    --side-bar-img-size: clamp(10px, 1.5vw, 30px);
+}
+
+.side-bar > .svg {
+    width: var(--side-bar-img-size);
+    justify-self: end;
+}
+
+.side-bar > .svg:first-of-type {
+    width: calc(1.5 * var(--side-bar-img-size));
+}
+
+.side-bar-link {
+    font-family: sans-serif;
+    font-size: var(--side-bar-font-size);
+    line-height: var(--side-bar-img-size);
+}
+
+.side-bar a:link, .side-bar a:visited {
+    color: white;
+}
+
+.side-bar a:hover {
+    color: rgb(183, 178, 178);
+}
+
+.side-bar>div:nth-child(2) {
+    font-size: var(--side-bar-font-size-big);
+    line-height: calc(1.5 * var(--side-bar-img-size));
+}
+
+.container {
+    background-color: rgb(230, 230, 241);
+    display: grid;
+    grid-template-areas: 
+    "header header"
+    "article extras";
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 0.7fr 3fr;
+}
+
+.header {
+    grid-area: header;
+    background-color: white;
+    display: grid;
+    grid-auto-flow: row;
+    padding: 1vw;
+    padding-top: 0;
+    padding: 0 3vw 1vw 2vw;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+.header-top {
+    display: flex;
+    flex-direction: row;
+    column-gap: 1vw;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+.header-top .svg {
+    height: 2vh;
+}
+
+.header-top input {
+    flex-grow: 5;
+    height: 3.5vh;
+    border: none;
+    border-radius: 20px;
+    margin: 1vw;
+    margin-right: 4vw;
+    margin-left: 0;
+    background-color: rgb(210, 210, 229);
+    padding-left: 20px;
+    font-family: sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.header-top > img {
+    width: 40px;
+}
+
+.header-top > p {
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    justify-self: flex-end;
+    margin-left: auto;
+}
+
+.header-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+.header-bottom > img {
+    width: 60px;
+}
+
+.welcome-msg {
+    margin-left: 20px;
+    margin-right: 4vw;
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.welcome-msg > p:last-child {
+    font-size: 1.4rem;
+}
+
+.header-bottom a {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header-bottom  button {
+    border-radius: 20px;
+    border: none;
+    background-color: rgb(1, 138, 212);
+    font-family: sans-serif;
+    width: 8vw;
+    height: 40px;
+    color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header-bottom button:hover {
+    filter: brightness(0.9);
+    cursor: pointer;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+.extras {
+    grid-area: extras;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(230, 230, 241); /* same as bg color of article */
+}
+
+.announcements-container {
+    margin: 20px 20px 0 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.announcements-inner {
+    background-color: white;
+    width: 14vw; /* same as of trending inner */
+    border-radius: 15px;
+    padding: 25px;
+    padding-top: 0;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.announcement {
+    justify-content: center;
+    padding-bottom: 1vw;
+    padding-top: 1vw;
+}
+
+.announcement:nth-last-child(n + 2) {
+    border-bottom: 1px solid black;
+}
+
+.announcement > h4 {
+    font-family: sans-serif;
+    font-size: 0.75rem;
+    margin-bottom: 5px;
+}
+
+.announcement> p {
+    font-family: sans-serif;
+    font-size: 0.65rem;
+}   
+
+.heading {
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-left: 1vw;
+    align-self: flex-start;
+}
+
+.trending-container {
+    margin: 20px 20px 0 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.trending-inner {
+    background-color: white;
+    width: 14vw;
+    border-radius: 15px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
+    gap: 10px;
+}
+
+.trending {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.trending-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    font-family: sans-serif;
+}
+
+.trending-info > a {
+    color: black;
+    font-size: 0.8rem;
+}
+
+.trending-info > a:hover {
+    color: blueviolet;
+}
+
+.trending-info > p > a {
+    color: rgb(63, 63, 63);
+    font-size: 0.7rem;
+}
+
+.trending-info > p > a:hover {
+    color: blue;
+}
+
+.article {
+    grid-area: article;
+    background-color: rgb(230, 230, 241); /* same as bg color of extras */
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px;
+}
+
+.project {
+    background-color: rgb(255, 255, 255); /* same as bg color of extras */
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.project > a:first-child {
+    display: block;
+    width: 100%; 
+    height: auto;
+    overflow: hidden;
+}
+
+.project > a > img {
+    width: 100%; /* Make the image cover the width of the container */
+    aspect-ratio: 2.5 / 1;
+    clip-path: inset(10px 10px 10px 10px);
+}
+
+.project > a > img:hover {
+    filter: opacity(0.8);
+}
+
+.project > a > h5 {
+    font-family: sans-serif;
+    color: black;
+    font-size: 1.2rem;
+}
+
+.project > a > h5:hover {
+    text-decoration: underline;
+}
+
+.project > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+}
+
+.projects-container .svg {
+    height: 1.2vw;
+    margin: 0 0.5vw 0;
+}
+
+/* imgs */
+
+.pfp {
+    border-radius: 50%;
+}
+
+/* SVG imgs */
+
+.svg {
+    aspect-ratio: 1 / 1;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+}
+
+.dashboard-svg {
+    background-color: white;
+    mask-image: url(graphics/dashboard.svg);    
+}
+
+.home-svg {
+    background-color: white;
+    mask-image: url(graphics/home.svg);
+}
+
+.profile-svg {
+    background-color: white;
+    mask-image: url(graphics/profile.svg);
+}
+
+.messages-svg {
+    background-color: white;
+    mask-image: url(graphics/messages.svg);
+}
+
+.history-svg {
+    background-color: white;
+    mask-image: url(graphics/history.svg);
+}
+
+.tasks-svg {
+    background-color: white;
+    mask-image: url(graphics/tasks.svg);
+}
+
+.communities-svg {
+    background-color: white;
+    mask-image: url(graphics/community.svg);
+}
+
+.settings-svg {
+    background-color: white;
+    mask-image: url(graphics/settings.svg);
+}
+
+.support-svg {
+    background-color: white;
+    mask-image: url(graphics/support.svg);
+}
+
+.privacy-svg {
+    background-color: white;
+    mask-image: url(graphics/privacy.svg);
+}
+
+.bell-svg {
+    background-color: black;
+    mask-image: url(graphics/bell.svg);
+}
+
+.search-svg {
+    background-color: black;
+    mask-image: url(graphics/search.svg);
+}
+
+.star-svg {
+    background-color: black;
+    mask-image: url(graphics/star.svg);
+}
+
+.star-svg:hover {
+    background-color: rgb(157, 2, 2);
+}
+
+.view-svg {
+    background-color: black;
+    mask-image: url(graphics/view.svg);
+}
+
+.view-svg:hover {
+    background-color: green;
+}
+
+.fork-svg {
+    background-color: black;
+    mask-image: url(graphics/fork.svg);
+}
+
+.fork-svg:hover {
+    background-color: blue;
+}
